@@ -1,0 +1,111 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+/* Dark mode is toggled by the `dark` class on <html> (see layouts/app.blade.php). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+    /*
+     * Compact UI: every Tailwind size (text, padding, gaps, icons) is in rem, so a 14px root
+     * shrinks the whole interface by 12.5% while keeping its proportions. Change to 100% to undo.
+     */
+    html {
+        font-size: 87.5%;
+    }
+
+    /* Tailwind v4 dropped the pointer cursor on buttons; restore it everywhere except disabled ones. */
+    button:not(:disabled),
+    [role='button']:not([aria-disabled='true']),
+    input:is([type='submit'], [type='button'], [type='reset']):not(:disabled) {
+        cursor: pointer;
+    }
+
+    /* Native <select> popups can't render translucent backgrounds, so give options a solid one in dark mode. */
+    .dark option,
+    .dark optgroup {
+        background-color: var(--color-neutral-900);
+        color: var(--color-neutral-100);
+    }
+}
+
+/*
+ * Single-line selects: replace the native arrow (which hugs the edge) with a chevron that has
+ * proper spacing. Kept outside @layer on purpose so its right padding wins over px-* utilities
+ * and text never runs under the arrow.
+ */
+select:not([multiple], [size]) {
+    appearance: none;
+    padding-right: 2.5rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23a3a3a3' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25rem 1.25rem;
+    print-color-adjust: exact;
+}
+
+/*
+ * Thin scrollbar for the dark sidebar: a faint thumb with no track or arrows, brighter while the
+ * pointer is over the scrolling area. Chrome, Edge and Safari use the ::-webkit rules (with the
+ * standard properties set, Chrome on Windows would add arrow buttons); Firefox uses scrollbar-color.
+ */
+@utility scrollbar-sidebar {
+    scrollbar-gutter: stable;
+
+    @supports not selector(::-webkit-scrollbar) {
+        scrollbar-width: thin;
+        scrollbar-color: rgb(255 255 255 / 0.08) transparent;
+
+        &:hover {
+            scrollbar-color: rgb(255 255 255 / 0.22) transparent;
+        }
+    }
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background: rgb(255 255 255 / 0.08);
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+        background: rgb(255 255 255 / 0.22);
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+        background: rgb(255 255 255 / 0.35);
+    }
+}
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    /* Only the "hydracore" wordmark (components/logo.blade.php). */
+    --font-logo: 'Sora', ui-sans-serif, system-ui, sans-serif;
+
+    /*
+     * Brand accent. Orange, one step darker from 500 up: buttons put white text on accent-600, and
+     * white on orange-600 is only 3.56:1, while on orange-700 it is 5.18:1 (the target is 4.5:1).
+     */
+    --color-accent-50: var(--color-orange-50);
+    --color-accent-100: var(--color-orange-100);
+    --color-accent-200: var(--color-orange-200);
+    --color-accent-300: var(--color-orange-300);
+    --color-accent-400: var(--color-orange-400);
+    --color-accent-500: var(--color-orange-600);
+    --color-accent-600: var(--color-orange-700);
+    --color-accent-700: var(--color-orange-800);
+    --color-accent-800: var(--color-orange-900);
+    --color-accent-900: var(--color-orange-950);
+    --color-accent-950: var(--color-orange-950);
+}
+
