@@ -8,5 +8,5 @@
     </span>
     <input type="hidden" name="{{ $name }}" value="0">
     <input type="checkbox" name="{{ $name }}" value="1" @checked(old($name, $checked)) class="peer sr-only">
-    <span class="relative mt-0.5 h-6 w-11 shrink-0 rounded-full bg-neutral-200 transition-colors after:absolute after:top-0.5 after:left-0.5 after:size-5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:bg-accent-600 peer-checked:after:tranneutral-x-5 peer-focus-visible:ring-2 peer-focus-visible:ring-accent-500 peer-focus-visible:ring-offset-2 dark:bg-white/10 dark:peer-focus-visible:ring-offset-neutral-900"></span>
+    <span class="relative mt-0.5 h-6 w-11 shrink-0 rounded-full bg-neutral-200 transition-colors after:absolute after:top-0.5 after:left-0.5 after:size-5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:bg-accent-600 peer-checked:after:translate-x-5 peer-focus-visible:ring-2 peer-focus-visible:ring-accent-500 peer-focus-visible:ring-offset-2 dark:bg-white/10 dark:peer-focus-visible:ring-offset-neutral-900"></span>
 </label>

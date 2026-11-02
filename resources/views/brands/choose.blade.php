@@ -57,10 +57,10 @@
                         <button type="submit" class="group flex w-24 flex-col items-center text-center focus:outline-none sm:w-28">
                             <span class="relative">
                                 <x-brand-avatar :brand="$brand" variant="solid"
-                                                class="size-24 rounded-md text-2xl sm:text-3xl tracking-tight shadow-xl shadow-black/30 ring-3 ring-transparent transition duration-200 group-hover:-tranneutral-y-1 group-hover:ring-accent-500 group-focus-visible:-tranneutral-y-1 group-focus-visible:ring-accent-500 sm:size-28" />
+                                                class="size-24 rounded-md text-2xl sm:text-3xl tracking-tight shadow-xl shadow-black/30 ring-3 ring-transparent transition duration-200 group-hover:-translate-y-1 group-hover:ring-accent-500 group-focus-visible:-translate-y-1 group-focus-visible:ring-accent-500 sm:size-28" />
 
                                 @if ($brand->id === $lastBrandId)
-                                    <span class="absolute top-1.5 right-1.5 rounded bg-black/45 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white uppercase backdrop-blur-sm transition duration-200 group-hover:-tranneutral-y-1">
+                                    <span class="absolute top-1.5 right-1.5 rounded bg-black/45 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white uppercase backdrop-blur-sm transition duration-200 group-hover:-translate-y-1">
                                         Last used
                                     </span>
                                 @endif
@@ -74,7 +74,7 @@
 
                 @if ($user->isSuperAdmin())
                     <a href="{{ $createUrl }}" class="group flex w-24 flex-col items-center text-center focus:outline-none sm:w-28">
-                        <span class="flex size-24 items-center justify-center rounded-md border-2 border-dashed border-white/15 text-gray-500 transition duration-200 group-hover:-tranneutral-y-1 group-hover:border-accent-500 group-hover:text-white group-focus-visible:-tranneutral-y-1 group-focus-visible:border-accent-500 sm:size-28">
+                        <span class="flex size-24 items-center justify-center rounded-md border-2 border-dashed border-white/15 text-gray-500 transition duration-200 group-hover:-translate-y-1 group-hover:border-accent-500 group-hover:text-white group-focus-visible:-translate-y-1 group-focus-visible:border-accent-500 sm:size-28">
                             <svg class="size-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>

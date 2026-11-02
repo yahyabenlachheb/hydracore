@@ -17,7 +17,7 @@
 @section('content')
     <x-list-card :items="$orders" noun="order" :action="route('orders.index')" :filtered="$filters['q'] !== '' || $filters['status'] || $filters['type']">
         <x-slot:filters>
-            <x-filter-search :value="$filters['q']" placeholder="Reference, customer or coupon…" />
+            <x-filter-search :value="$filters['q']" placeholder="Reference or customer…" />
             <x-filter-select name="status" placeholder="All statuses" :options="App\Models\Order::STATUSES" :selected="$filters['status']" />
             <x-filter-select name="type" placeholder="All types" :options="['new' => 'New', 'renewal' => 'Renewal']" :selected="$filters['type']" />
         </x-slot:filters>

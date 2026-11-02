@@ -80,7 +80,7 @@
 
     {{-- Sidebar --}}
     <aside data-sidebar
-           class="fixed inset-y-0 left-0 z-50 flex w-72 -tranneutral-x-full flex-col bg-neutral-900 transition-transform dark:border-r dark:border-white/10 duration-200 ease-out lg:tranneutral-x-0">
+           class="fixed inset-y-0 left-0 z-50 flex w-72 -translate-x-full flex-col bg-neutral-900 transition-transform dark:border-r dark:border-white/10 duration-200 ease-out lg:translate-x-0">
         <div class="flex h-16 shrink-0 items-center justify-between gap-3 px-6">
             <a href="{{ $navUrl('dashboard') }}" class="flex items-center gap-3">
                 <x-logo />
@@ -336,7 +336,7 @@
             const sidebar = document.querySelector('[data-sidebar]');
             const backdrop = document.querySelector('[data-sidebar-backdrop]');
             const toggle = (open) => {
-                sidebar.classList.toggle('-tranneutral-x-full', !open);
+                sidebar.classList.toggle('-translate-x-full', !open);
                 backdrop.classList.toggle('hidden', !open);
             };
 

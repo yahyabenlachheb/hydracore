@@ -11,7 +11,7 @@
 @section('content')
     <x-list-card :items="$payments" noun="payment" :action="route('payments.index')" :filtered="$filters['q'] !== '' || $filters['status'] || $filters['provider']" empty-text="They appear here when a payment is recorded on an order.">
         <x-slot:filters>
-            <x-filter-search :value="$filters['q']" placeholder="Transaction or order reference…" />
+            <x-filter-search :value="$filters['q']" placeholder="Transaction or reference…" />
             <x-filter-select name="status" placeholder="All statuses" :options="App\Models\Payment::STATUSES" :selected="$filters['status']" />
             <x-filter-select name="provider" placeholder="All providers" :options="App\Models\Payment::PROVIDERS" :selected="$filters['provider']" />
         </x-slot:filters>

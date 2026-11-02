@@ -75,7 +75,7 @@
         </span>
         <input type="hidden" name="is_active" value="{{ $isSelf ? 1 : 0 }}">
         <input type="checkbox" name="is_active" value="1" @checked(old('is_active', $user->is_active)) @disabled($isSelf) class="peer sr-only">
-        <span class="relative mt-0.5 h-6 w-11 shrink-0 rounded-full bg-neutral-200 transition-colors after:absolute after:top-0.5 after:left-0.5 after:size-5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:bg-accent-600 peer-checked:after:tranneutral-x-5 peer-focus-visible:ring-2 peer-focus-visible:ring-accent-500 peer-focus-visible:ring-offset-2 dark:bg-white/10 dark:peer-focus-visible:ring-offset-neutral-900"></span>
+        <span class="relative mt-0.5 h-6 w-11 shrink-0 rounded-full bg-neutral-200 transition-colors after:absolute after:top-0.5 after:left-0.5 after:size-5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:bg-accent-600 peer-checked:after:translate-x-5 peer-focus-visible:ring-2 peer-focus-visible:ring-accent-500 peer-focus-visible:ring-offset-2 dark:bg-white/10 dark:peer-focus-visible:ring-offset-neutral-900"></span>
     </label>
     @error('is_active')<p class="text-xs text-rose-600 dark:text-rose-400">{{ $message }}</p>@enderror
 
@@ -93,7 +93,7 @@
                 <input type="hidden" name="is_super_admin" value="0">
             @endif
             <input type="checkbox" name="is_super_admin" value="1" @checked(old('is_super_admin', $user->is_super_admin)) @disabled($isSelf) data-super-admin-toggle class="peer sr-only">
-            <span class="relative mt-0.5 h-6 w-11 shrink-0 rounded-full bg-neutral-200 transition-colors after:absolute after:top-0.5 after:left-0.5 after:size-5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:bg-accent-600 peer-checked:after:tranneutral-x-5 peer-focus-visible:ring-2 peer-focus-visible:ring-accent-500 peer-focus-visible:ring-offset-2 dark:bg-white/10 dark:peer-focus-visible:ring-offset-neutral-900"></span>
+            <span class="relative mt-0.5 h-6 w-11 shrink-0 rounded-full bg-neutral-200 transition-colors after:absolute after:top-0.5 after:left-0.5 after:size-5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:bg-accent-600 peer-checked:after:translate-x-5 peer-focus-visible:ring-2 peer-focus-visible:ring-accent-500 peer-focus-visible:ring-offset-2 dark:bg-white/10 dark:peer-focus-visible:ring-offset-neutral-900"></span>
         </label>
         @error('is_super_admin')<p class="text-xs text-rose-600 dark:text-rose-400">{{ $message }}</p>@enderror
     @endif

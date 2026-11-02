@@ -27,7 +27,7 @@
         <form method="GET" action="{{ route('audit-logs.index') }}" class="space-y-3 border-b border-neutral-200 px-6 py-4 dark:border-white/10">
             <div class="flex flex-wrap items-center gap-2">
                 <div class="relative min-w-56 flex-1">
-                    <svg class="pointer-events-none absolute top-1/2 left-3 size-4 -tranneutral-y-1/2 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
+                    <svg class="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
                     <input type="search" name="q" value="{{ $filters['q'] }}" placeholder="Search descriptions…" class="w-full pr-3 pl-9 placeholder:text-neutral-400 {{ $field }}">
                 </div>
                 <select name="user" onchange="this.form.requestSubmit()" class="pl-3 {{ $field }}">
