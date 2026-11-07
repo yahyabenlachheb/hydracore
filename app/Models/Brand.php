@@ -22,7 +22,10 @@ class Brand extends Model
 {
     use Auditable;
 
-    protected $fillable = ['name', 'website', 'is_active'];
+    protected $fillable = ['name', 'website', 'is_active', 'api_token'];
+
+    /** Hash of the website's API key (see brands:api-key). Hidden, so the audit log masks it. */
+    protected $hidden = ['api_token'];
 
     protected function casts(): array
     {

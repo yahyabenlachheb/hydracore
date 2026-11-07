@@ -41,6 +41,25 @@ Also set `APP_ENV=production` and `APP_DEBUG=false`, and use a database user lim
 
 ## Connecting the website
 
+Each brand's website calls the API with its own key, and the brand comes from the key:
+
+```sh
+php artisan brands:api-key "SKYWINGIPTV"            # prints a new key once; the old one stops working
+php artisan brands:api-key "SKYWINGIPTV" --revoke
+```
+
+`POST /api/v1/trials` with `Authorization: Bearer <key>` and JSON `full_name`, `email` (required),
+`phone`, `country` (2 letters), `device_type`, `device_info`, `ip_address` (the visitor's), `notes`.
+It finds or creates the customer by email, filling only empty fields and appending notes, and adds a
+pending trial. If that customer already has a pending or active trial on the brand, it returns that one
+(200, `"created": false`) instead of a second one (201).
+
+`POST /api/v1/contacts` with `full_name`, `email`, `message` (required), `subject`, `ip_address`.
+It stores a "new" contact message. It never creates or changes a customer, only links one that already
+has that email. The same message from the same email within 10 minutes is stored once.
+
+Both are limited to 60 requests a minute.
+
 The panel doesn't include the public checkout or a payment webhook. A webhook should call
 `OrderFulfillment::pay()` or `::fail()`, so it follows the same rules as the panel.
 
